@@ -71,8 +71,10 @@
   --espresso-soft: oklch(0.26 0.03 55);
   --cream: oklch(0.955 0.018 80);            /* #f5efe4 warm cream */
   --cream-deep: oklch(0.91 0.025 78);
-  --amber: oklch(0.72 0.16 60);              /* #d4820a amber */
-  --amber-deep: oklch(0.64 0.16 55);
+  --amber: #F2B433;                          /* Jubala gold */
+  --amber-deep: #C47949;                     /* warm brown */
+  --yellow: #FDE540;                         /* highlight yellow */
+  --warm-brown: #C47949;                     /* secondary accent */
 
   --background: var(--cream);
   --foreground: var(--espresso);

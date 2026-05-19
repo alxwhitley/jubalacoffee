@@ -1,6 +1,5 @@
 import { ChevronDown } from "lucide-react";
 import heroImage from "@/assets/hero-coffee.jpg";
-import { OrderOnlineButton } from "./OrderOnlineButton";
 
 export function Hero() {
   return (
@@ -51,7 +50,12 @@ export function Hero() {
         </p>
 
         <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:gap-4">
-          <OrderOnlineButton />
+          <a
+            href="#locations"
+            className="inline-flex h-11 items-center justify-center rounded-[10px] bg-[var(--amber)] px-6 text-sm font-semibold text-[var(--espresso)] transition-colors hover:bg-[var(--yellow)]"
+          >
+            Order Online
+          </a>
           <a
             href="#coffee"
             className="inline-flex h-11 items-center justify-center rounded-[10px] border border-[var(--cream)]/70 px-6 text-sm font-medium text-[var(--cream)] transition-colors hover:bg-[var(--cream)] hover:text-[var(--espresso)]"

@@ -49,7 +49,7 @@ export function ShopCoffee() {
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="flex flex-col items-start gap-6">
-          <span className="text-[11px] font-medium uppercase tracking-[0.28em] text-[var(--amber-deep)]">
+          <span className="text-[11px] font-medium uppercase tracking-[0.28em] text-[var(--amber)]">
             Fresh Roasted, Shipped to You
           </span>
           <div className="flex w-full flex-col gap-4 md:flex-row md:items-end md:justify-between">
@@ -73,7 +73,7 @@ export function ShopCoffee() {
                   className={cn(
                     "h-11 whitespace-nowrap rounded-[10px] px-5 text-sm font-medium transition-colors",
                     isActive
-                      ? "bg-[var(--espresso)] text-[var(--cream)]"
+                      ? "bg-[var(--espresso)] text-[var(--yellow)]"
                       : "border border-[color-mix(in_oklab,var(--espresso)_20%,transparent)] text-[var(--espresso)] hover:border-[var(--espresso)]",
                   )}
                 >
@@ -103,7 +103,7 @@ export function ShopCoffee() {
                   />
                 </div>
                 <div className="mt-6 flex flex-1 flex-col">
-                  <span className="text-[10px] font-medium uppercase tracking-[0.22em] text-[var(--amber-deep)]">
+                  <span className="text-[10px] font-medium uppercase tracking-[0.22em] text-[var(--amber)]">
                     {p.origin}
                   </span>
                   <h3 className="mt-2 font-serif text-2xl leading-tight">{p.name}</h3>
@@ -129,7 +129,7 @@ export function ShopCoffee() {
         <div className="mt-14 text-center">
           <a
             href="#all-coffees"
-            className="inline-flex items-center gap-2 text-sm font-medium text-[var(--amber-deep)] transition-colors hover:text-[var(--amber)]"
+            className="inline-flex items-center gap-2 text-sm font-medium text-[var(--amber)] transition-colors hover:text-[var(--yellow)]"
           >
             View all coffees <span aria-hidden>→</span>
           </a>
