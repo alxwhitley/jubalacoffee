@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Plus } from "lucide-react";
 import { cn } from "@/lib/utils";
 import ethiopia from "@/assets/coffee-ethiopia.jpg";
@@ -41,6 +41,20 @@ const PRODUCTS: Product[] = [
 
 export function ShopCoffee() {
   const [active, setActive] = useState<(typeof TABS)[number]>("Year-Round Blends");
+  const scrollerRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const el = scrollerRef.current;
+    if (!el) return;
+    const onScroll = () => {
+      const cardWidth = el.clientWidth * 0.8;
+      const idx = Math.round(el.scrollLeft / cardWidth);
+      setActiveIndex(Math.max(0, Math.min(PRODUCTS.length - 1, idx)));
+    };
+    el.addEventListener("scroll", onScroll, { passive: true });
+    return () => el.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <section
@@ -84,14 +98,16 @@ export function ShopCoffee() {
           </div>
         </div>
 
-        {/* Product grid: stacked mobile, scroll row tablet, 3-col desktop */}
-        <div className="mt-12 -mx-6 overflow-x-auto px-6 md:overflow-visible md:px-0 md:mx-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-          <div className="grid grid-flow-col auto-cols-[78%] gap-6 sm:auto-cols-[55%] md:auto-cols-[40%] lg:grid-flow-row lg:auto-cols-auto lg:grid-cols-3 lg:gap-8">
-            {PRODUCTS.map((p) => (
-              <article
-                key={p.name}
-                className="group flex flex-col rounded-2xl border border-[color-mix(in_oklab,var(--espresso)_12%,transparent)] bg-[color-mix(in_oklab,var(--cream)_55%,white)] p-5 transition-colors hover:border-[color-mix(in_oklab,var(--espresso)_25%,transparent)]"
-              >
+        {/* Products: snap carousel on mobile, 2-col tablet, 3-col desktop */}
+        <div
+          ref={scrollerRef}
+          className="mt-12 -mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 [-webkit-overflow-scrolling:touch] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:snap-none md:grid-cols-2 md:gap-6 md:overflow-visible md:px-0 lg:grid-cols-3 lg:gap-8"
+        >
+          {PRODUCTS.map((p) => (
+            <article
+              key={p.name}
+              className="group flex w-[80%] shrink-0 snap-start flex-col rounded-2xl border border-[color-mix(in_oklab,var(--espresso)_12%,transparent)] bg-[color-mix(in_oklab,var(--cream)_55%,white)] p-5 transition-colors hover:border-[color-mix(in_oklab,var(--espresso)_25%,transparent)] md:w-auto md:shrink"
+            >
                 <div className="aspect-square overflow-hidden rounded-xl bg-[var(--cream-deep)]">
                   <img
                     src={p.image}
@@ -123,7 +139,22 @@ export function ShopCoffee() {
                 </div>
               </article>
             ))}
-          </div>
+        </div>
+
+        {/* Dot indicators (mobile only) */}
+        <div className="mt-6 flex items-center justify-center gap-2 md:hidden">
+          {PRODUCTS.map((p, i) => (
+            <span
+              key={p.name}
+              aria-hidden
+              className={cn(
+                "h-2 rounded-full transition-all",
+                i === activeIndex
+                  ? "w-6 bg-[var(--amber)]"
+                  : "w-2 bg-[color-mix(in_oklab,var(--amber)_30%,transparent)]",
+              )}
+            />
+          ))}
         </div>
 
         <div className="mt-14 text-center">
