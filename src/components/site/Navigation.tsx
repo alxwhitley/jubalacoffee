@@ -24,7 +24,7 @@ export function Navigation() {
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6 lg:px-10 lg:py-7">
         <a
           href="/"
-          className="font-serif text-2xl tracking-tight text-[var(--cream)] lg:text-[1.6rem]"
+          className="font-serif text-2xl font-semibold tracking-[-0.02em] text-[var(--cream)] lg:text-[1.6rem]"
         >
           Jubala <span className="italic font-normal">Coffee</span>
         </a>
@@ -35,7 +35,7 @@ export function Navigation() {
               <li key={l.label}>
                 <a
                   href={l.href}
-                  className="text-sm font-medium text-[var(--cream)]/85 transition-colors hover:text-[var(--cream)]"
+                  className="text-sm font-medium tracking-[-0.005em] text-[var(--cream)]/90 underline-offset-[6px] decoration-[var(--amber)] decoration-2 transition-colors hover:underline"
                 >
                   {l.label}
                 </a>
