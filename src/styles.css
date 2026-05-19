@@ -92,7 +92,6 @@
   --accent-foreground: var(--cream);
   --destructive: oklch(0.55 0.18 28);
   --destructive-foreground: var(--cream);
-  --border: oklch(0.86 0.02 75);
   --border: #d9c9af;
   --input: #d9c9af;
   --ring: var(--amber);
