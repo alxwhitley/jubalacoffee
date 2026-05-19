@@ -92,8 +92,8 @@
   --accent-foreground: var(--cream);
   --destructive: oklch(0.55 0.18 28);
   --destructive-foreground: var(--cream);
-  --border: oklch(0.86 0.02 75);
-  --input: oklch(0.86 0.02 75);
+  --border: #d9c9af;
+  --input: #d9c9af;
   --ring: var(--amber);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
@@ -160,7 +160,7 @@
 
   h1, h2, h3, h4, h5 {
     font-family: var(--font-serif);
-    font-weight: 500;
-    letter-spacing: -0.01em;
+    font-weight: 600;
+    letter-spacing: -0.018em;
   }
 }

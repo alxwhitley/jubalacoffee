@@ -63,7 +63,7 @@ export function ShopCoffee() {
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="flex flex-col items-start gap-6">
-          <span className="text-[11px] font-medium uppercase tracking-[0.28em] text-[var(--amber)]">
+          <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[var(--amber)]">
             Fresh Roasted, Shipped to You
           </span>
           <div className="flex w-full flex-col gap-4 md:flex-row md:items-end md:justify-between">
@@ -85,10 +85,10 @@ export function ShopCoffee() {
                   aria-selected={isActive}
                   onClick={() => setActive(tab)}
                   className={cn(
-                    "h-11 whitespace-nowrap rounded-[10px] px-5 text-sm font-medium transition-colors",
+                    "h-11 whitespace-nowrap rounded-[5px] px-5 text-sm font-medium transition-colors",
                     isActive
                       ? "bg-[var(--espresso)] text-[var(--yellow)]"
-                      : "border border-[color-mix(in_oklab,var(--espresso)_20%,transparent)] text-[var(--espresso)] hover:border-[var(--espresso)]",
+                      : "border border-[var(--espresso)] text-[var(--espresso)] hover:bg-[color-mix(in_oklab,var(--espresso)_6%,transparent)]",
                   )}
                 >
                   {tab}
@@ -106,9 +106,9 @@ export function ShopCoffee() {
           {PRODUCTS.map((p) => (
             <article
               key={p.name}
-              className="group flex w-[80%] shrink-0 snap-start flex-col rounded-2xl border border-[color-mix(in_oklab,var(--espresso)_12%,transparent)] bg-[color-mix(in_oklab,var(--cream)_55%,white)] p-5 transition-colors hover:border-[color-mix(in_oklab,var(--espresso)_25%,transparent)] md:w-auto md:shrink"
+              className="group flex w-[80%] shrink-0 snap-start flex-col rounded-[6px] border border-[var(--border)] bg-[color-mix(in_oklab,var(--cream)_55%,white)] p-5 transition-colors hover:border-[var(--warm-brown)] md:w-auto md:shrink"
             >
-                <div className="aspect-square overflow-hidden rounded-xl bg-[var(--cream-deep)]">
+                <div className="aspect-square overflow-hidden rounded-[6px] bg-[var(--cream-deep)]">
                   <img
                     src={p.image}
                     alt={p.name}
@@ -119,7 +119,7 @@ export function ShopCoffee() {
                   />
                 </div>
                 <div className="mt-6 flex flex-1 flex-col">
-                  <span className="text-[10px] font-medium uppercase tracking-[0.22em] text-[var(--amber)]">
+                  <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--amber)]">
                     {p.origin}
                   </span>
                   <h3 className="mt-2 font-serif text-2xl leading-tight">{p.name}</h3>
@@ -130,7 +130,7 @@ export function ShopCoffee() {
                     <span className="font-serif text-xl">{p.price}</span>
                     <button
                       type="button"
-                      className="inline-flex h-10 items-center gap-2 rounded-[10px] bg-[var(--espresso)] px-4 text-sm font-medium text-[var(--cream)] transition-colors hover:bg-[var(--espresso-soft)]"
+                      className="inline-flex h-10 items-center gap-2 rounded-[5px] bg-[var(--espresso)] px-4 text-sm font-medium text-[var(--cream)] transition-colors hover:bg-[var(--espresso-soft)]"
                     >
                       <Plus className="h-4 w-4" />
                       Add to Cart
@@ -160,7 +160,7 @@ export function ShopCoffee() {
         <div className="mt-14 text-center">
           <a
             href="#all-coffees"
-            className="inline-flex items-center gap-2 text-sm font-medium text-[var(--amber)] transition-colors hover:text-[var(--yellow)]"
+            className="inline-flex items-center gap-2 text-sm font-medium text-[var(--amber)] underline-offset-[6px] transition-colors hover:text-[var(--warm-brown)] hover:underline"
           >
             View all coffees <span aria-hidden>→</span>
           </a>

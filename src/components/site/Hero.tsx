@@ -52,13 +52,13 @@ export function Hero() {
         <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:gap-4">
           <a
             href="#locations"
-            className="inline-flex h-11 items-center justify-center rounded-[10px] bg-[var(--amber)] px-6 text-sm font-semibold text-[var(--espresso)] transition-colors hover:bg-[var(--yellow)]"
+            className="inline-flex h-11 items-center justify-center rounded-[5px] bg-[var(--amber)] px-6 text-sm font-semibold text-[var(--espresso)] transition-colors hover:bg-[var(--warm-brown)]"
           >
             Order Online
           </a>
           <a
             href="#coffee"
-            className="inline-flex h-11 items-center justify-center rounded-[10px] border border-[var(--cream)]/70 px-6 text-sm font-medium text-[var(--cream)] transition-colors hover:bg-[var(--cream)] hover:text-[var(--espresso)]"
+            className="inline-flex h-11 items-center justify-center rounded-[5px] border border-[var(--cream)]/70 px-6 text-sm font-medium text-[var(--cream)] transition-colors hover:bg-[var(--cream)] hover:text-[var(--espresso)]"
           >
             Shop Our Coffee
           </a>

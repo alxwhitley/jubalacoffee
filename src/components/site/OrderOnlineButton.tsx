@@ -42,7 +42,7 @@ export function OrderOnlineButton({ variant = "solid", className, label = "Order
         aria-expanded={open}
         aria-haspopup="menu"
         className={cn(
-          "inline-flex items-center justify-center gap-2 rounded-[10px] bg-[var(--amber)] px-6 font-medium text-[var(--cream)] transition-colors hover:bg-[var(--amber-deep)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--amber)] focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+          "inline-flex items-center justify-center gap-2 rounded-[5px] bg-[var(--amber)] px-6 font-semibold text-[var(--espresso)] transition-colors hover:bg-[var(--warm-brown)] hover:text-[var(--cream)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--amber)] focus-visible:ring-offset-2 focus-visible:ring-offset-background",
           variant === "block" ? "h-14 w-full text-base" : "h-11 text-sm",
         )}
       >
@@ -57,7 +57,7 @@ export function OrderOnlineButton({ variant = "solid", className, label = "Order
         <div
           role="menu"
           className={cn(
-            "absolute z-50 mt-2 overflow-hidden rounded-[10px] border border-[color-mix(in_oklab,var(--espresso)_15%,transparent)] bg-[var(--cream)] shadow-lg shadow-[color-mix(in_oklab,var(--espresso)_18%,transparent)]",
+            "absolute z-50 mt-2 overflow-hidden rounded-[6px] border border-[var(--border)] bg-[var(--cream)] shadow-sm",
             variant === "block"
               ? "left-0 right-0 bottom-full mb-2"
               : "right-0 w-72",
@@ -74,7 +74,7 @@ export function OrderOnlineButton({ variant = "solid", className, label = "Order
                   role="menuitem"
                   className="flex items-start gap-3 px-4 py-3 text-[var(--espresso)] transition-colors hover:bg-[var(--cream-deep)]"
                 >
-                  <MapPin className="mt-0.5 h-4 w-4 text-[var(--amber-deep)]" aria-hidden />
+                  <MapPin className="mt-0.5 h-4 w-4 text-[var(--amber)]" aria-hidden />
                   <div className="flex flex-col">
                     <span className="font-serif text-base leading-tight">{loc.name}</span>
                     <span className="text-xs text-[color-mix(in_oklab,var(--espresso)_65%,transparent)]">
