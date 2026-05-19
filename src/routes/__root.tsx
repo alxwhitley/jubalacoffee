@@ -72,14 +72,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "Jubala Coffee" },
+      { name: "description", content: "Jubala Coffee" },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "Jubala Coffee" },
+      { property: "og:description", content: "Jubala Coffee" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Jubala Coffee" },
+      { name: "twitter:description", content: "Jubala Coffee" },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/5076fa43-58be-4896-9c73-6f138aedab38/id-preview-15d6090b--f48cb122-9ebe-4c6d-b4a6-f69a7886b273.lovable.app-1779222378039.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/5076fa43-58be-4896-9c73-6f138aedab38/id-preview-15d6090b--f48cb122-9ebe-4c6d-b4a6-f69a7886b273.lovable.app-1779222378039.png" },
     ],
     links: [
       {
