@@ -157,10 +157,14 @@ export function LocationsMegaMenu({
   open,
   onClose,
   triggerRef,
+  onMouseEnter,
+  onMouseLeave,
 }: {
   open: boolean;
   onClose: () => void;
   triggerRef: React.RefObject<HTMLElement | null>;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
 }) {
   const [selected, setSelected] = useState<string>(LOCATIONS[0].id);
   const [copiedId, setCopiedId] = useState<string | null>(null);
@@ -205,7 +209,9 @@ export function LocationsMegaMenu({
   return (
     <div
       ref={panelRef}
-      className="absolute left-1/2 top-full z-50 mt-3 hidden w-[min(880px,calc(100vw-2rem))] -translate-x-1/2 overflow-hidden rounded-[8px] border border-[var(--border)] bg-[var(--cream)] text-[var(--espresso)] shadow-[0_24px_60px_-20px_rgba(26,18,8,0.35)] md:block"
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+      className="absolute inset-x-0 top-full z-50 mx-auto hidden w-full overflow-hidden rounded-b-[8px] border-x border-b border-[var(--border)] bg-[var(--cream)] text-[var(--espresso)] shadow-[0_20px_40px_-12px_rgba(26,18,8,0.25),-16px_0_30px_-20px_rgba(26,18,8,0.18),16px_0_30px_-20px_rgba(26,18,8,0.18)] md:block"
     >
       <div className="grid grid-cols-1 md:grid-cols-[1fr_1.1fr]">
         <div className="border-r border-[var(--border)] py-3">
