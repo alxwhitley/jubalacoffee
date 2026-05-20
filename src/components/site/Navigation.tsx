@@ -43,9 +43,9 @@ export function Navigation() {
       >
         <a
           href="/"
-          className="font-serif text-2xl font-semibold tracking-[-0.02em] text-[var(--cream)] lg:text-[1.6rem]"
+          className="text-2xl font-bold text-[var(--cream)] lg:text-[1.6rem]"
         >
-          Jubala <span className="italic font-normal">Coffee</span>
+          Jubala Coffee
         </a>
 
         <div className="hidden items-center gap-9 md:flex">
@@ -54,7 +54,7 @@ export function Navigation() {
               <li key={l.label}>
                 <a
                   href={l.href}
-                  className="text-sm font-medium tracking-[-0.005em] text-[var(--cream)]/90 underline-offset-[6px] decoration-[var(--amber)] decoration-2 transition-colors hover:underline"
+                  className="text-sm font-medium tracking-[0.06em] text-[var(--cream)]/90 underline-offset-[6px] decoration-[var(--amber)] decoration-2 transition-colors hover:underline"
                 >
                   {l.label}
                 </a>
@@ -70,7 +70,7 @@ export function Navigation() {
                 onClick={() => setLocOpen((v) => !v)}
                 aria-expanded={locOpen}
                 aria-haspopup="true"
-                className="inline-flex items-center gap-1 text-sm font-medium tracking-[-0.005em] text-[var(--cream)]/90 underline-offset-[6px] decoration-[var(--amber)] decoration-2 transition-colors hover:underline"
+                className="inline-flex items-center gap-1 text-sm font-medium tracking-[0.06em] text-[var(--cream)]/90 underline-offset-[6px] decoration-[var(--amber)] decoration-2 transition-colors hover:underline"
               >
                 Locations
                 <ChevronDown
@@ -102,9 +102,7 @@ export function Navigation() {
       {mobileOpen && (
         <div className="fixed inset-0 z-50 flex flex-col bg-[var(--espresso)] text-[var(--cream)] md:hidden">
           <div className="flex items-center justify-between px-6 py-6">
-            <span className="font-serif text-2xl">
-              Jubala <span className="italic font-normal">Coffee</span>
-            </span>
+            <span className="text-2xl font-bold">Jubala Coffee</span>
             <button
               type="button"
               aria-label="Close menu"
@@ -121,7 +119,7 @@ export function Navigation() {
                 <a
                   href={l.href}
                   onClick={() => setMobileOpen(false)}
-                  className="block border-b border-[color-mix(in_oklab,var(--cream)_15%,transparent)] py-5 font-serif text-3xl"
+                  className="block border-b border-[color-mix(in_oklab,var(--cream)_15%,transparent)] py-5 text-3xl font-medium tracking-[0.06em]"
                 >
                   {l.label}
                 </a>
@@ -134,7 +132,7 @@ export function Navigation() {
                   setMobileOpen(false);
                   setMobileLocOpen(true);
                 }}
-                className="block w-full border-b border-[color-mix(in_oklab,var(--cream)_15%,transparent)] py-5 text-left font-serif text-3xl"
+                className="block w-full border-b border-[color-mix(in_oklab,var(--cream)_15%,transparent)] py-5 text-left text-3xl font-medium tracking-[0.06em]"
               >
                 Locations
               </button>
