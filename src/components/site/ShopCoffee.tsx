@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import ethiopia from "@/assets/coffee-ethiopia.jpg";
 import kenya from "@/assets/coffee-kenya.jpg";
 import blend from "@/assets/coffee-blend.jpg";
+import colombia from "@/assets/coffee-colombia.jpg";
 
 const TABS = ["Fan Favorites", "Single Origin", "Blends", "Subscriptions"] as const;
 
@@ -20,6 +21,7 @@ const PRODUCTS_BY_TAB: Record<(typeof TABS)[number], Product[]> = {
     { origin: "House Blend", name: "Cadence Blend", note: "Dark chocolate, almond, brown sugar", price: "$18", image: blend },
     { origin: "Kenya", name: "Kabuku AA", note: "Blackcurrant, brown sugar, ripe plum", price: "$22", image: kenya },
     { origin: "Ethiopia", name: "Yaye Heirloom Honey", note: "Jasmine, stone fruit, honey", price: "$20", image: ethiopia },
+    { origin: "Colombia", name: "Andres Martinez Gesha", note: "Brown sugar, apricot, jasmine", price: "$26", image: colombia },
   ],
   "Single Origin": [
     { origin: "Kenya", name: "Kabuku AA", note: "Blackcurrant, brown sugar, ripe plum", price: "$22", image: kenya },
