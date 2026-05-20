@@ -35,7 +35,7 @@ export function Hero() {
       />
 
       <div className="relative z-10 mx-auto flex max-w-4xl flex-col items-center px-6 pt-20 pb-16 text-center text-[var(--cream)]">
-        <span className="mb-5 text-[11px] font-medium uppercase tracking-[0.32em] text-[var(--cream)]/75">
+        <span className="mb-5 text-[11px] font-medium uppercase tracking-[0.15em] text-[var(--cream)]/75">
           Raleigh, NC &nbsp;—&nbsp; Est. 2011
         </span>
 
@@ -45,20 +45,20 @@ export function Hero() {
           <span className="italic font-normal">Celebrating.</span>
         </h1>
 
-        <p className="mt-6 max-w-xl text-base font-light text-[var(--cream)]/80 sm:text-lg">
+        <p className="mt-6 max-w-xl text-base font-normal text-[var(--cream)]/80 sm:text-lg">
           Craft-roasted in Raleigh. Prepared to order.
         </p>
 
         <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:gap-4">
           <a
             href="#locations"
-            className="inline-flex h-11 items-center justify-center rounded-[5px] bg-[var(--amber)] px-6 text-sm font-semibold text-[var(--espresso)] transition-colors hover:bg-[var(--warm-brown)]"
+            className="inline-flex h-11 items-center justify-center rounded-[5px] bg-[var(--amber)] px-6 text-sm font-medium tracking-[0.06em] text-[var(--espresso)] transition-colors hover:bg-[var(--warm-brown)]"
           >
             Order Online
           </a>
           <a
             href="#coffee"
-            className="inline-flex h-11 items-center justify-center rounded-[5px] border border-[var(--cream)]/70 px-6 text-sm font-medium text-[var(--cream)] transition-colors hover:bg-[var(--cream)] hover:text-[var(--espresso)]"
+            className="inline-flex h-11 items-center justify-center rounded-[5px] border border-[var(--cream)]/70 px-6 text-sm font-medium tracking-[0.06em] text-[var(--cream)] transition-colors hover:bg-[var(--cream)] hover:text-[var(--espresso)]"
           >
             Shop Our Coffee
           </a>
