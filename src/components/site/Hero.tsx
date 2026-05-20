@@ -49,16 +49,16 @@ export function Hero() {
           Craft-roasted in Raleigh. Prepared to order.
         </p>
 
-        <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:gap-4">
+        <div className="mt-8 flex w-full max-w-xs flex-col items-stretch gap-3 sm:w-auto sm:max-w-none sm:flex-row sm:items-center sm:gap-4">
           <a
             href="#locations"
-            className="inline-flex h-11 items-center justify-center rounded-[5px] bg-[var(--amber)] px-6 text-sm font-medium tracking-[0.06em] text-[var(--espresso)] transition-colors hover:bg-[var(--warm-brown)]"
+            className="inline-flex h-11 w-full items-center justify-center rounded-[5px] bg-[var(--amber)] px-6 text-sm font-medium tracking-[0.06em] text-[var(--espresso)] transition-colors hover:bg-[var(--warm-brown)] sm:w-auto"
           >
             Order Online
           </a>
           <a
             href="#coffee"
-            className="inline-flex h-11 items-center justify-center rounded-[5px] border border-[var(--cream)]/70 px-6 text-sm font-medium tracking-[0.06em] text-[var(--cream)] transition-colors hover:bg-[var(--cream)] hover:text-[var(--espresso)]"
+            className="inline-flex h-11 w-full items-center justify-center rounded-[5px] border border-[var(--cream)]/70 px-6 text-sm font-medium tracking-[0.06em] text-[var(--cream)] transition-colors hover:bg-[var(--cream)] hover:text-[var(--espresso)] sm:w-auto"
           >
             Shop Our Coffee
           </a>
