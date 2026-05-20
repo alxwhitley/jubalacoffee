@@ -267,9 +267,11 @@ export function LocationsMobileOverlay({
     }, 1600);
   }
 
+  const active = LOCATIONS.find((l) => l.id === expandedId) ?? LOCATIONS[0];
+
   return (
     <div className="fixed inset-0 z-[60] flex flex-col bg-[var(--cream)] text-[var(--espresso)] md:hidden">
-      <div className="flex items-center justify-between border-b border-[var(--border)] px-6 py-5">
+      <div className="flex items-center justify-between border-b border-[var(--border)] px-6 py-4">
         <div>
           <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[var(--amber)]">
             Visit
@@ -285,29 +287,102 @@ export function LocationsMobileOverlay({
           <X className="h-6 w-6" />
         </button>
       </div>
+
+      {/* Fixed map */}
+      <div className="relative h-[220px] w-full shrink-0 overflow-hidden bg-[var(--cream-deep)]">
+        <img
+          src={active.map}
+          alt={`Map of ${active.name}`}
+          width={1024}
+          height={768}
+          className="h-full w-full object-cover"
+        />
+        <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+          <div className="relative">
+            <span className="absolute -inset-3 animate-ping rounded-full bg-[var(--amber)]/40" />
+            <span className="relative inline-flex h-9 w-9 items-center justify-center rounded-full bg-[var(--espresso)] text-[var(--amber)] shadow-lg">
+              <MapPin className="h-5 w-5" />
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {/* Scrollable list */}
       <div className="flex-1 overflow-y-auto">
-        {LOCATIONS.map((loc) => {
-          const isOpen = loc.id === expandedId;
-          return (
-            <div key={loc.id} className="border-b border-[var(--border)]">
-              <LocationRow
-                loc={loc}
-                active={isOpen}
-                onSelect={() => setExpandedId(loc.id)}
-                onCopy={(e) => {
+        {LOCATIONS.map((loc) => (
+          <div
+            key={loc.id}
+            className="border-b border-[color-mix(in_oklab,var(--espresso)_12%,transparent)]"
+          >
+            <button
+              type="button"
+              onClick={() => setExpandedId(loc.id)}
+              className={cn(
+                "flex w-full items-start gap-3 border-l-2 px-5 py-4 text-left transition-colors",
+                loc.id === expandedId
+                  ? "border-[var(--amber)] bg-[#e8ddc8]"
+                  : "border-transparent",
+              )}
+            >
+              <div className="flex-1">
+                <div className="flex items-center gap-2">
+                  <h4 className="font-serif text-lg text-[var(--espresso)]">{loc.name}</h4>
+                  {loc.badge && (
+                    <span className="rounded-sm bg-[var(--amber)] px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-[0.15em] text-[var(--espresso)]">
+                      {loc.badge}
+                    </span>
+                  )}
+                </div>
+                <p className="mt-0.5 text-xs font-medium uppercase tracking-[0.15em] text-[color-mix(in_oklab,var(--espresso)_60%,transparent)]">
+                  {loc.neighborhood}
+                </p>
+                <p className="mt-1.5 text-xs font-light text-[color-mix(in_oklab,var(--espresso)_70%,transparent)]">
+                  {loc.address}
+                </p>
+              </div>
+              <span
+                role="button"
+                tabIndex={0}
+                onClick={(e) => {
                   e.stopPropagation();
                   copyAddress(loc);
                 }}
-                copied={copiedId === loc.id}
-              />
-              {isOpen && (
-                <div className="px-4 pb-5">
-                  <MapPanel location={loc} />
-                </div>
-              )}
-            </div>
-          );
-        })}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    copyAddress(loc);
+                  }
+                }}
+                aria-label={copiedId === loc.id ? "Address copied" : "Copy address"}
+                className="relative mt-1 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-[5px] text-[var(--espresso)]/60"
+              >
+                {copiedId === loc.id ? (
+                  <Check className="h-4 w-4 text-[var(--amber)]" />
+                ) : (
+                  <Clipboard className="h-4 w-4" />
+                )}
+                {copiedId === loc.id && (
+                  <span className="pointer-events-none absolute -top-7 right-0 rounded-sm bg-[var(--espresso)] px-2 py-0.5 text-[10px] font-medium text-[var(--cream)]">
+                    Copied!
+                  </span>
+                )}
+              </span>
+            </button>
+          </div>
+        ))}
+      </div>
+
+      {/* Sticky CTA */}
+      <div className="border-t border-[var(--border)] bg-[var(--cream)] p-4">
+        <a
+          href={active.orderUrl}
+          target="_blank"
+          rel="noreferrer noopener"
+          className="flex h-12 w-full items-center justify-center rounded-[5px] bg-[var(--amber)] px-5 text-sm font-semibold text-[var(--espresso)] transition-colors hover:bg-[var(--warm-brown)]"
+        >
+          Order Online at {active.name}
+        </a>
       </div>
     </div>
   );
