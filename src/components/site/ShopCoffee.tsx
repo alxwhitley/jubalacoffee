@@ -62,20 +62,15 @@ export function ShopCoffee() {
       className="bg-[var(--cream)] py-20 text-[var(--espresso)] lg:py-24"
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
-        <div className="flex flex-col items-start gap-6">
-          <span className="text-[11px] font-medium uppercase tracking-[0.15em] text-[var(--amber)]">
-            Fresh Roasted, Shipped to You
-          </span>
-          <div className="flex w-full flex-col gap-4 md:flex-row md:items-end md:justify-between">
-            <h2 className="font-serif text-5xl leading-tight md:text-6xl">
-              Take Jubala <span className="italic font-normal">Home.</span>
-            </h2>
-          </div>
+        <div className="text-center">
+          <h2 className="font-serif text-5xl leading-tight md:text-6xl">
+            Take Jubala <span className="italic font-normal">Home.</span>
+          </h2>
         </div>
 
         {/* Tabs */}
         <div className="mt-8 -mx-6 overflow-x-auto px-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-          <div role="tablist" className="flex w-max items-center gap-3">
+          <div role="tablist" className="mx-auto flex w-max items-center justify-center gap-3">
             {TABS.map((tab) => {
               const isActive = tab === active;
               return (
@@ -98,15 +93,15 @@ export function ShopCoffee() {
           </div>
         </div>
 
-        {/* Products: snap carousel on mobile, 2-col tablet, 3-col desktop */}
+        {/* Products: horizontal snap carousel on all screen sizes */}
         <div
           ref={scrollerRef}
-          className="mt-8 -mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 [-webkit-overflow-scrolling:touch] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:snap-none md:grid-cols-2 md:gap-6 md:overflow-visible md:px-0 lg:grid-cols-3 lg:gap-8"
+          className="mt-8 -mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth px-6 [-webkit-overflow-scrolling:touch] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:gap-6"
         >
           {PRODUCTS.map((p) => (
             <article
               key={p.name}
-              className="group flex w-[80%] shrink-0 snap-start flex-col rounded-[6px] border border-[var(--border)] bg-[color-mix(in_oklab,var(--cream)_55%,white)] p-4 transition-colors hover:border-[var(--warm-brown)] md:w-auto md:shrink"
+              className="group flex w-[80%] shrink-0 snap-start flex-col rounded-[6px] border border-[var(--border)] bg-[color-mix(in_oklab,var(--cream)_55%,white)] p-4 transition-colors hover:border-[var(--warm-brown)] md:w-[340px]"
             >
                 <div className="aspect-square overflow-hidden rounded-[6px] bg-[var(--cream-deep)]">
                   <img
