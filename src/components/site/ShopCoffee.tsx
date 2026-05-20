@@ -100,7 +100,7 @@ export function ShopCoffee() {
           ref={scrollerRef}
           className="mt-8 -mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth px-6 [-webkit-overflow-scrolling:touch] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:gap-6"
         >
-          {PRODUCTS.map((p) => (
+          {products.map((p) => (
             <article
               key={p.name}
               className="group flex w-[80%] shrink-0 snap-start flex-col rounded-[6px] border border-[var(--border)] bg-[color-mix(in_oklab,var(--cream)_55%,white)] p-4 transition-colors hover:border-[var(--warm-brown)] md:w-[340px]"
@@ -140,7 +140,7 @@ export function ShopCoffee() {
 
         {/* Dot indicators (mobile only) */}
         <div className="mt-6 flex items-center justify-center gap-2 md:hidden">
-          {PRODUCTS.map((p, i) => (
+          {products.map((p, i) => (
             <span
               key={p.name}
               aria-hidden
