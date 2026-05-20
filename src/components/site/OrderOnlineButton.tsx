@@ -42,7 +42,7 @@ export function OrderOnlineButton({ variant = "solid", className, label = "Order
         aria-expanded={open}
         aria-haspopup="menu"
         className={cn(
-          "inline-flex items-center justify-center gap-2 rounded-[5px] bg-[var(--amber)] px-6 font-semibold text-[var(--espresso)] transition-colors hover:bg-[var(--warm-brown)] hover:text-[var(--cream)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--amber)] focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+          "inline-flex items-center justify-center gap-2 rounded-[5px] bg-[var(--amber)] px-6 font-medium tracking-[0.06em] text-[var(--espresso)] transition-colors hover:bg-[var(--warm-brown)] hover:text-[var(--cream)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--amber)] focus-visible:ring-offset-2 focus-visible:ring-offset-background",
           variant === "block" ? "h-14 w-full text-base" : "h-11 text-sm",
         )}
       >
@@ -63,7 +63,7 @@ export function OrderOnlineButton({ variant = "solid", className, label = "Order
               : "right-0 w-72",
           )}
         >
-          <div className="px-4 pt-3 pb-2 text-[10px] font-medium uppercase tracking-[0.18em] text-[color-mix(in_oklab,var(--espresso)_70%,transparent)]">
+          <div className="px-4 pt-3 pb-2 text-[10px] font-medium uppercase tracking-[0.15em] text-[color-mix(in_oklab,var(--espresso)_70%,transparent)]">
             Pick a location
           </div>
           <ul className="pb-2">
@@ -76,7 +76,7 @@ export function OrderOnlineButton({ variant = "solid", className, label = "Order
                 >
                   <MapPin className="mt-0.5 h-4 w-4 text-[var(--amber)]" aria-hidden />
                   <div className="flex flex-col">
-                    <span className="font-serif text-base leading-tight">{loc.name}</span>
+                    <span className="text-base font-bold leading-tight">{loc.name}</span>
                     <span className="text-xs text-[color-mix(in_oklab,var(--espresso)_65%,transparent)]">
                       {loc.desc}
                     </span>

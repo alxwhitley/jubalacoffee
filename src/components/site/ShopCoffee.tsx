@@ -63,7 +63,7 @@ export function ShopCoffee() {
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="flex flex-col items-start gap-6">
-          <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[var(--amber)]">
+          <span className="text-[11px] font-medium uppercase tracking-[0.15em] text-[var(--amber)]">
             Fresh Roasted, Shipped to You
           </span>
           <div className="flex w-full flex-col gap-4 md:flex-row md:items-end md:justify-between">
@@ -85,7 +85,7 @@ export function ShopCoffee() {
                   aria-selected={isActive}
                   onClick={() => setActive(tab)}
                   className={cn(
-                    "h-11 whitespace-nowrap rounded-[5px] px-5 text-sm font-medium transition-colors",
+                    "h-11 whitespace-nowrap rounded-[5px] px-5 text-sm font-medium tracking-[0.06em] transition-colors",
                     isActive
                       ? "bg-[var(--espresso)] text-[var(--yellow)]"
                       : "border border-[var(--espresso)] text-[var(--espresso)] hover:bg-[color-mix(in_oklab,var(--espresso)_6%,transparent)]",
@@ -119,18 +119,18 @@ export function ShopCoffee() {
                   />
                 </div>
                 <div className="mt-5 flex flex-1 flex-col">
-                  <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--amber)]">
+                  <span className="text-[10px] font-medium uppercase tracking-[0.12em] text-[var(--amber)]">
                     {p.origin}
                   </span>
-                  <h3 className="mt-1.5 font-serif text-2xl leading-tight">{p.name}</h3>
-                  <p className="mt-1.5 text-sm font-light italic text-[color-mix(in_oklab,var(--espresso)_70%,transparent)]">
+                  <h3 className="mt-1.5 text-2xl leading-tight">{p.name}</h3>
+                  <p className="mt-1.5 text-sm font-normal text-[color-mix(in_oklab,var(--espresso)_70%,transparent)]">
                     {p.note}
                   </p>
                   <div className="mt-5 flex items-center justify-between">
-                    <span className="font-serif text-xl">{p.price}</span>
+                    <span className="text-xl font-bold">{p.price}</span>
                     <button
                       type="button"
-                      className="inline-flex h-10 items-center gap-2 rounded-[5px] bg-[var(--espresso)] px-4 text-sm font-medium text-[var(--cream)] transition-colors hover:bg-[var(--espresso-soft)]"
+                      className="inline-flex h-10 items-center gap-2 rounded-[5px] bg-[var(--espresso)] px-4 text-sm font-medium tracking-[0.06em] text-[var(--cream)] transition-colors hover:bg-[var(--espresso-soft)]"
                     >
                       <Plus className="h-4 w-4" />
                       Add to Cart
