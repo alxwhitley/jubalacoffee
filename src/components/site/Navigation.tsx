@@ -37,7 +37,10 @@ export function Navigation() {
 
   return (
     <header className="absolute inset-x-0 top-0 z-40">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6 lg:px-10 lg:py-7">
+      <nav
+        className="relative mx-auto flex max-w-7xl items-center justify-between px-6 py-6 lg:px-10 lg:py-7"
+        onMouseLeave={scheduleCloseLoc}
+      >
         <a
           href="/"
           className="font-serif text-2xl font-semibold tracking-[-0.02em] text-[var(--cream)] lg:text-[1.6rem]"
@@ -61,7 +64,6 @@ export function Navigation() {
               ref={locTriggerRef}
               className="relative"
               onMouseEnter={openLoc}
-              onMouseLeave={scheduleCloseLoc}
             >
               <button
                 type="button"
@@ -75,15 +77,17 @@ export function Navigation() {
                   className={`h-3.5 w-3.5 transition-transform ${locOpen ? "rotate-180" : ""}`}
                 />
               </button>
-              <LocationsMegaMenu
-                open={locOpen}
-                onClose={() => setLocOpen(false)}
-                triggerRef={locTriggerRef}
-              />
             </li>
           </ul>
           <OrderOnlineButton />
         </div>
+        <LocationsMegaMenu
+          open={locOpen}
+          onClose={() => setLocOpen(false)}
+          triggerRef={locTriggerRef}
+          onMouseEnter={openLoc}
+          onMouseLeave={scheduleCloseLoc}
+        />
 
         <button
           type="button"
