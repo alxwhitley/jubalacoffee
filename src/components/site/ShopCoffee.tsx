@@ -5,7 +5,7 @@ import ethiopia from "@/assets/coffee-ethiopia.jpg";
 import kenya from "@/assets/coffee-kenya.jpg";
 import blend from "@/assets/coffee-blend.jpg";
 
-const TABS = ["Year-Round Blends", "Single-Origins", "Coffee", "Subscriptions"] as const;
+const TABS = ["Fan Favorites", "Single Origin", "Blends", "Subscriptions"] as const;
 
 type Product = {
   origin: string;
@@ -15,46 +15,48 @@ type Product = {
   image: string;
 };
 
-const PRODUCTS: Product[] = [
-  {
-    origin: "Kenya",
-    name: "Kabuku AA",
-    note: "Blackcurrant, brown sugar, ripe plum",
-    price: "$22",
-    image: kenya,
-  },
-  {
-    origin: "Ethiopia",
-    name: "Yirgacheffe Konga",
-    note: "Jasmine, bergamot, lemon zest",
-    price: "$20",
-    image: ethiopia,
-  },
-  {
-    origin: "House Blend",
-    name: "Neighborhood Roast",
-    note: "Milk chocolate, almond, gentle spice",
-    price: "$18",
-    image: blend,
-  },
-];
+const PRODUCTS_BY_TAB: Record<(typeof TABS)[number], Product[]> = {
+  "Fan Favorites": [
+    { origin: "House Blend", name: "Cadence Blend", note: "Dark chocolate, almond, brown sugar", price: "$18", image: blend },
+    { origin: "Kenya", name: "Kabuku AA", note: "Blackcurrant, brown sugar, ripe plum", price: "$22", image: kenya },
+    { origin: "Ethiopia", name: "Yaye Heirloom Honey", note: "Jasmine, stone fruit, honey", price: "$20", image: ethiopia },
+  ],
+  "Single Origin": [
+    { origin: "Kenya", name: "Kabuku AA", note: "Blackcurrant, brown sugar, ripe plum", price: "$22", image: kenya },
+    { origin: "Ethiopia", name: "Yaye Heirloom Honey", note: "Jasmine, stone fruit, honey", price: "$20", image: ethiopia },
+    { origin: "Colombia", name: "Pink Bourbon Washed", note: "Red apple, caramel, floral", price: "$24", image: ethiopia },
+  ],
+  Blends: [
+    { origin: "House Blend", name: "Cadence Blend", note: "Dark chocolate, almond, brown sugar", price: "$18", image: blend },
+    { origin: "House Blend", name: "Neighborhood Roast", note: "Milk chocolate, almond, gentle spice", price: "$18", image: blend },
+    { origin: "Decaf Blend", name: "Interlude Decaf", note: "Brown sugar, dried fruit, smooth finish", price: "$16", image: blend },
+  ],
+  Subscriptions: [
+    { origin: "We choose, you enjoy", name: "Monthly Roaster's Pick", note: "Fresh single origin every month", price: "$22/mo", image: kenya },
+    { origin: "Always stocked", name: "Espresso Subscription", note: "Cadence Blend shipped every 2 weeks", price: "$18/mo", image: blend },
+    { origin: "Two bags monthly", name: "Explorer Bundle", note: "One blend, one single origin", price: "$38/mo", image: ethiopia },
+  ],
+};
 
 export function ShopCoffee() {
-  const [active, setActive] = useState<(typeof TABS)[number]>("Year-Round Blends");
+  const [active, setActive] = useState<(typeof TABS)[number]>("Fan Favorites");
   const scrollerRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const products = PRODUCTS_BY_TAB[active];
 
   useEffect(() => {
     const el = scrollerRef.current;
     if (!el) return;
+    el.scrollTo({ left: 0 });
+    setActiveIndex(0);
     const onScroll = () => {
       const cardWidth = el.clientWidth * 0.8;
       const idx = Math.round(el.scrollLeft / cardWidth);
-      setActiveIndex(Math.max(0, Math.min(PRODUCTS.length - 1, idx)));
+      setActiveIndex(Math.max(0, Math.min(products.length - 1, idx)));
     };
     el.addEventListener("scroll", onScroll, { passive: true });
     return () => el.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [active, products.length]);
 
   return (
     <section
