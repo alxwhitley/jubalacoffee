@@ -59,7 +59,7 @@ export function ShopCoffee() {
   return (
     <section
       id="coffee"
-      className="bg-[var(--cream)] py-24 text-[var(--espresso)] lg:py-32"
+      className="bg-[var(--cream)] py-20 text-[var(--espresso)] lg:py-24"
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="flex flex-col items-start gap-6">
@@ -74,7 +74,7 @@ export function ShopCoffee() {
         </div>
 
         {/* Tabs */}
-        <div className="mt-12 -mx-6 overflow-x-auto px-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <div className="mt-8 -mx-6 overflow-x-auto px-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           <div role="tablist" className="flex w-max items-center gap-3">
             {TABS.map((tab) => {
               const isActive = tab === active;
@@ -101,12 +101,12 @@ export function ShopCoffee() {
         {/* Products: snap carousel on mobile, 2-col tablet, 3-col desktop */}
         <div
           ref={scrollerRef}
-          className="mt-12 -mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 [-webkit-overflow-scrolling:touch] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:snap-none md:grid-cols-2 md:gap-6 md:overflow-visible md:px-0 lg:grid-cols-3 lg:gap-8"
+          className="mt-8 -mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 [-webkit-overflow-scrolling:touch] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:snap-none md:grid-cols-2 md:gap-6 md:overflow-visible md:px-0 lg:grid-cols-3 lg:gap-8"
         >
           {PRODUCTS.map((p) => (
             <article
               key={p.name}
-              className="group flex w-[80%] shrink-0 snap-start flex-col rounded-[6px] border border-[var(--border)] bg-[color-mix(in_oklab,var(--cream)_55%,white)] p-5 transition-colors hover:border-[var(--warm-brown)] md:w-auto md:shrink"
+              className="group flex w-[80%] shrink-0 snap-start flex-col rounded-[6px] border border-[var(--border)] bg-[color-mix(in_oklab,var(--cream)_55%,white)] p-4 transition-colors hover:border-[var(--warm-brown)] md:w-auto md:shrink"
             >
                 <div className="aspect-square overflow-hidden rounded-[6px] bg-[var(--cream-deep)]">
                   <img
@@ -118,15 +118,15 @@ export function ShopCoffee() {
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                 </div>
-                <div className="mt-6 flex flex-1 flex-col">
+                <div className="mt-5 flex flex-1 flex-col">
                   <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--amber)]">
                     {p.origin}
                   </span>
-                  <h3 className="mt-2 font-serif text-2xl leading-tight">{p.name}</h3>
-                  <p className="mt-2 text-sm font-light italic text-[color-mix(in_oklab,var(--espresso)_70%,transparent)]">
+                  <h3 className="mt-1.5 font-serif text-2xl leading-tight">{p.name}</h3>
+                  <p className="mt-1.5 text-sm font-light italic text-[color-mix(in_oklab,var(--espresso)_70%,transparent)]">
                     {p.note}
                   </p>
-                  <div className="mt-6 flex items-center justify-between">
+                  <div className="mt-5 flex items-center justify-between">
                     <span className="font-serif text-xl">{p.price}</span>
                     <button
                       type="button"
@@ -157,7 +157,7 @@ export function ShopCoffee() {
           ))}
         </div>
 
-        <div className="mt-14 text-center">
+        <div className="mt-12 text-center">
           <a
             href="#all-coffees"
             className="inline-flex items-center gap-2 text-sm font-medium text-[var(--amber)] underline-offset-[6px] transition-colors hover:text-[var(--warm-brown)] hover:underline"
