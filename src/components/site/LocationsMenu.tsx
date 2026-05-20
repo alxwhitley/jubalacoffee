@@ -81,7 +81,7 @@ function MapPanel({ location }: { location: Location }) {
         href={location.orderUrl}
         target="_blank"
         rel="noreferrer noopener"
-        className="mt-4 inline-flex h-11 items-center justify-center rounded-[5px] bg-[var(--amber)] px-5 text-sm font-semibold text-[var(--espresso)] transition-colors hover:bg-[var(--warm-brown)]"
+        className="mt-4 inline-flex h-11 items-center justify-center rounded-[5px] bg-[var(--amber)] px-5 text-sm font-medium tracking-[0.06em] text-[var(--espresso)] transition-colors hover:bg-[var(--warm-brown)]"
       >
         Order Online at {location.name}
       </a>
@@ -115,7 +115,7 @@ function LocationRow({
     >
       <div className="flex-1">
         <div className="flex items-center gap-2">
-          <h4 className="font-serif text-lg text-[var(--espresso)]">{loc.name}</h4>
+          <h4 className="text-lg font-bold text-[var(--espresso)]">{loc.name}</h4>
           {loc.badge && (
             <span className="rounded-sm bg-[var(--amber)] px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-[0.15em] text-[var(--espresso)]">
               {loc.badge}
@@ -125,7 +125,7 @@ function LocationRow({
         <p className="mt-0.5 text-xs font-medium uppercase tracking-[0.15em] text-[color-mix(in_oklab,var(--espresso)_60%,transparent)]">
           {loc.neighborhood}
         </p>
-        <p className="mt-1.5 text-xs font-light text-[color-mix(in_oklab,var(--espresso)_70%,transparent)]">
+        <p className="mt-1.5 text-xs font-normal text-[color-mix(in_oklab,var(--espresso)_70%,transparent)]">
           {loc.address}
         </p>
       </div>
@@ -215,7 +215,7 @@ export function LocationsMegaMenu({
     >
       <div className="grid grid-cols-1 md:grid-cols-[1fr_1.1fr]">
         <div className="border-r border-[var(--border)] py-3">
-          <p className="px-4 pb-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-[var(--amber)]">
+          <p className="px-4 pb-2 text-[10px] font-medium uppercase tracking-[0.15em] text-[var(--amber)]">
             Four Raleigh shops
           </p>
           {LOCATIONS.map((loc) => (
@@ -273,10 +273,10 @@ export function LocationsMobileOverlay({
     <div className="fixed inset-0 z-[60] flex flex-col bg-[var(--cream)] text-[var(--espresso)] md:hidden">
       <div className="flex items-center justify-between border-b border-[var(--border)] px-6 py-4">
         <div>
-          <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[var(--amber)]">
+          <p className="text-[10px] font-medium uppercase tracking-[0.15em] text-[var(--amber)]">
             Visit
           </p>
-          <h3 className="font-serif text-2xl">Our Locations</h3>
+          <h3 className="text-2xl">Our Locations</h3>
         </div>
         <button
           type="button"
@@ -326,7 +326,7 @@ export function LocationsMobileOverlay({
             >
               <div className="flex-1">
                 <div className="flex items-center gap-2">
-                  <h4 className="font-serif text-lg text-[var(--espresso)]">{loc.name}</h4>
+                  <h4 className="text-lg font-bold text-[var(--espresso)]">{loc.name}</h4>
                   {loc.badge && (
                     <span className="rounded-sm bg-[var(--amber)] px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-[0.15em] text-[var(--espresso)]">
                       {loc.badge}
@@ -336,7 +336,7 @@ export function LocationsMobileOverlay({
                 <p className="mt-0.5 text-xs font-medium uppercase tracking-[0.15em] text-[color-mix(in_oklab,var(--espresso)_60%,transparent)]">
                   {loc.neighborhood}
                 </p>
-                <p className="mt-1.5 text-xs font-light text-[color-mix(in_oklab,var(--espresso)_70%,transparent)]">
+                <p className="mt-1.5 text-xs font-normal text-[color-mix(in_oklab,var(--espresso)_70%,transparent)]">
                   {loc.address}
                 </p>
               </div>
@@ -379,7 +379,7 @@ export function LocationsMobileOverlay({
           href={active.orderUrl}
           target="_blank"
           rel="noreferrer noopener"
-          className="flex h-12 w-full items-center justify-center rounded-[5px] bg-[var(--amber)] px-5 text-sm font-semibold text-[var(--espresso)] transition-colors hover:bg-[var(--warm-brown)]"
+          className="flex h-12 w-full items-center justify-center rounded-[5px] bg-[var(--amber)] px-5 text-sm font-medium tracking-[0.06em] text-[var(--espresso)] transition-colors hover:bg-[var(--warm-brown)]"
         >
           Order Online at {active.name}
         </a>
