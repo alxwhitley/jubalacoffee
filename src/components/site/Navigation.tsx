@@ -1,16 +1,32 @@
-import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { ChevronDown, Menu, X } from "lucide-react";
 import { OrderOnlineButton } from "./OrderOnlineButton";
+import { LocationsMegaMenu, LocationsMobileOverlay } from "./LocationsMenu";
 
 const LINKS = [
   { label: "Menu", href: "#menu" },
   { label: "Our Coffee", href: "#coffee" },
-  { label: "Locations", href: "#locations" },
   { label: "Catering", href: "#catering" },
 ];
 
 export function Navigation() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [locOpen, setLocOpen] = useState(false);
+  const [mobileLocOpen, setMobileLocOpen] = useState(false);
+  const locTriggerRef = useRef<HTMLLIElement>(null);
+  const hoverTimer = useRef<number | null>(null);
+
+  function openLoc() {
+    if (hoverTimer.current) {
+      window.clearTimeout(hoverTimer.current);
+      hoverTimer.current = null;
+    }
+    setLocOpen(true);
+  }
+  function scheduleCloseLoc() {
+    if (hoverTimer.current) window.clearTimeout(hoverTimer.current);
+    hoverTimer.current = window.setTimeout(() => setLocOpen(false), 150);
+  }
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
@@ -41,6 +57,30 @@ export function Navigation() {
                 </a>
               </li>
             ))}
+            <li
+              ref={locTriggerRef}
+              className="relative"
+              onMouseEnter={openLoc}
+              onMouseLeave={scheduleCloseLoc}
+            >
+              <button
+                type="button"
+                onClick={() => setLocOpen((v) => !v)}
+                aria-expanded={locOpen}
+                aria-haspopup="true"
+                className="inline-flex items-center gap-1 text-sm font-medium tracking-[-0.005em] text-[var(--cream)]/90 underline-offset-[6px] decoration-[var(--amber)] decoration-2 transition-colors hover:underline"
+              >
+                Locations
+                <ChevronDown
+                  className={`h-3.5 w-3.5 transition-transform ${locOpen ? "rotate-180" : ""}`}
+                />
+              </button>
+              <LocationsMegaMenu
+                open={locOpen}
+                onClose={() => setLocOpen(false)}
+                triggerRef={locTriggerRef}
+              />
+            </li>
           </ul>
           <OrderOnlineButton />
         </div>
@@ -83,6 +123,18 @@ export function Navigation() {
                 </a>
               </li>
             ))}
+            <li className="w-full">
+              <button
+                type="button"
+                onClick={() => {
+                  setMobileOpen(false);
+                  setMobileLocOpen(true);
+                }}
+                className="block w-full border-b border-[color-mix(in_oklab,var(--cream)_15%,transparent)] py-5 text-left font-serif text-3xl"
+              >
+                Locations
+              </button>
+            </li>
           </ul>
 
           <div className="px-6 pb-10 pt-6">
@@ -90,6 +142,10 @@ export function Navigation() {
           </div>
         </div>
       )}
+      <LocationsMobileOverlay
+        open={mobileLocOpen}
+        onClose={() => setMobileLocOpen(false)}
+      />
     </header>
   );
 }
